@@ -129,3 +129,15 @@ console.log((Math.floor(Math.random() * (100 - 50 + 1))+50))
 
 // ? 9) Generate a random number between 0 and 255 inclusively.
 console.log(Math.floor(Math.random() * 256))
+
+// ? 10) Access 'JavaScript' string characters using a random number.
+let random = Math.floor(Math.random() * 8),
+    js = 'JavaScript'
+console.log(`Character at ${random}: ${js.charAt(random)}`)
+
+// ? 11) Use console.log() and escape characters to print the pattern.
+console.log('1 1 1 1 1\n2 1 2 4 8\n3 1 3 9 27\n4 1 4 16 64\n5 1 5 25 125')
+
+// ? 12) Use substr to slice out the phrase 'because because because'
+let b = 'because'
+console.log(sentence.substr(sentence.indexOf(b), (b.length*3+2)))   // Three because plus two spaces.
