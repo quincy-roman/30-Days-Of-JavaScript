@@ -141,3 +141,38 @@ console.log('1 1 1 1 1\n2 1 2 4 8\n3 1 3 9 27\n4 1 4 16 64\n5 1 5 25 125')
 // ? 12) Use substr to slice out the phrase 'because because because'
 let b = 'because'
 console.log(sentence.substr(sentence.indexOf(b), (b.length*3+2)))   // Three because plus two spaces.
+
+// ! Level 3
+
+// ? 1) Count the number of times the word 'love' appears.
+let love = 'Love is the best thing in this world. Some found their love and some are still looking for their love.'
+console.log(love.toLowerCase().match(/love/g).length)   // Make it all lowercase, then search for the string (g is global). Length is the count.
+
+// ? 2) Use match to count the number of all beacuase.
+console.log(sentence.match(/because/g).length)
+
+// ? 3) Clean the text and find the most frequent word.
+const text = '%I $am@% a %tea@cher%, &and& I lo%#ve %te@a@ching%;. The@re $is no@th@ing; &as& mo@re rewarding as educa@ting &and& @emp%o@weri@ng peo@ple. ;I found tea@ching m%o@re interesting tha@n any ot#her %jo@bs. %Do@es thi%s mo@tiv#ate yo@u to be a tea@cher!? %Th#is 30#Days&OfJavaScript &is al@so $the $resu@lt of &love& of tea&ching'
+let fix = text.replace(/[^A-Za-z 0-9.!?]/g, '')
+
+let wordCount = { }, 
+    words = fix.split(/\b/)
+
+for(let word of words){
+    wordCount[word] = (wordCount[word] || 0) + 1    // Use the word as a key and add its frequency.
+}
+
+console.log(wordCount)  // ! Not entirely finished, may return to fix it.
+
+// ? 4) Calculate the total annual income of the person by extracting the numbers from the text.
+let income = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.',
+    total = 0
+income = income.match(/[-+]?[0-9]*\.?[0-9]+/g)
+
+for(let amount of income){
+    if(amount == 5000 || amount == 15000){  // Hard-coded solution.
+        amount = parseInt(amount) * 12
+    }
+    total += parseInt(amount)
+}
+console.log(total)
